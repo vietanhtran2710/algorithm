@@ -7,7 +7,7 @@ def input(input_file_path):
         data = f.readlines()
         n = int(data[0].split()[0])
         for i in range(n):
-            map.append([1000] * n)
+            map.append([sys.maxsize] * n)
         start_end_nodes = data[1].split()
         ha = int(start_end_nodes[0])
         sa = int(start_end_nodes[1])
