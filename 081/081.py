@@ -33,11 +33,13 @@ def get_map(maze):
                         x = get_map_pos(row_index, col_index, len(row))
                         y = get_map_pos(row_index + 1, col_index, len(row))
                         map[x][y] = 1
+                        map[y][x] = 1
                 if col_index < len(row) - 1:
                     if maze[row_index][col_index + 1] == ".":
                         x = get_map_pos(row_index, col_index, len(row))
                         y = get_map_pos(row_index, col_index + 1, len(row))
                         map[x][y] = 1
+                        map[y][x] = 1
     return map
 
 
@@ -66,4 +68,4 @@ data = input("LABYR.INP")
 maze = get_maze(data)
 map = get_map(maze)
 map = ford_bellman(map)
-output("LABYR.OUT",map)
+output("LABYR.OUT", map)
