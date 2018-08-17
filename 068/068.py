@@ -26,7 +26,7 @@ def get_map(map, data):
 
 
 def go(index):
-    global min, result_tour
+    global min, result_tour, total_cost
     if index >= 3:
         if total_cost + map[tour[index - 1]][tour[0]] < min:
             min = total_cost + map[tour[index - 1]][tour[0]]
@@ -48,7 +48,7 @@ def get_result(result, min):
     if not result:
         return [0]
     else:
-        return output_lines = [1, min, len(result), result]
+        return [1, min, len(result), result]
 
 
 def output(output_file_path, content):
@@ -64,7 +64,8 @@ map = get_map(map, data[1:])
 result_tour = []
 for i in range(n):
     tour = [i] + [0] * (n - 1)
-    checked = [True] + [False] * (n - 1)
+    checked = [False] * n
+    checked[i] = True
     total_cost = 0
     min = sys.maxsize
     go(1)
