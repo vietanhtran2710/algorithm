@@ -37,7 +37,7 @@ def go(index):
         if not checked[i]:
             tour[index] = i
             checked[i] = True
-            add_cost =  map[tour[index - 1]][i]
+            add_cost = map[tour[index - 1]][i]
             total_cost += add_cost
             go(index + 1)
             checked[i] = False
@@ -70,4 +70,4 @@ for i in range(n):
     min = sys.maxsize
     go(1)
 output_lines = get_result(result_tour, min)
-output("TOUR.OUT",output_lines)
+output("TOUR.OUT", output_lines)
